@@ -5,4 +5,4 @@
 Eyes follow your mouse cursor.
 
 **Tech:** HTML/CSS/JS  
-**Live:** [https://twist-code1.github.io/ISY-Eye-Tracker/]
+[CHECK HERE](https://twist-code1.github.io/ISY-Eye-Tracker/)
