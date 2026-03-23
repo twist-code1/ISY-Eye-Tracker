@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISY</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #4a4545;
+        }
+        .eye {
+            background-color: #ffffff;
+            border-color: #000;
+            border-radius: 50%;
+            border-width: 5px;
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pupil {
+            background-color: #000000;
+            border-color: #000;
+            border-radius: 50%;
+            border-width: 5px;
+            width: 80px;
+            height: 80px;
+            margin: 50px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="eye"><div class="pupil"></div></div>
+    <div class="eye"><div class="pupil"></div></div>
+
+    <script>
+        const pupil = document.querySelectorAll('.pupil');
+        window.onmousemove = (e) => {
+            pupil.forEach(pupil => {
+                const rect = pupil.getBoundingClientRect();
+                const r = rect.width / 2;
+                const x = rect.left + r;
+                const y = rect.top + r;
+
+                const angle = Math.atan2(e.clientY - y, e.clientX - x);
+                const dist = 40;
+
+                const moveX = Math.cos(angle) * dist;
+                const moveY = Math.sin(angle) * dist;
+
+                pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        };
+    </script>
+</body>
+</html>
